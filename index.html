@@ -1,0 +1,908 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MODA STYLE | Tienda de ropa</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --negro: #202020;
+    --cafe: #a56f4c;
+    --beige: #f4eee7;
+    --blanco: #ffffff;
+    --gris: #666666;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #faf8f5;
+    color: var(--negro);
+}
+
+/* MENÚ SUPERIOR */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--negro);
+    padding: 20px 6%;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.logo {
+    color: white;
+    font-size: 27px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #d5b49a;
+}
+
+.navbar nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.navbar nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.navbar nav a:hover {
+    color: #d5b49a;
+}
+
+/* VERIFICACIÓN DE CLIENTE */
+
+.verificacion {
+    background: var(--beige);
+    padding: 35px 20px;
+}
+
+.login-card {
+    background: white;
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+}
+
+.logo-icono {
+    text-align: center;
+    font-size: 36px;
+    color: var(--cafe);
+    margin-bottom: 10px;
+}
+
+.login-card h1 {
+    font-size: 25px;
+    text-align: center;
+    color: var(--negro);
+    margin-bottom: 12px;
+}
+
+.descripcion-formulario {
+    text-align: center;
+    color: var(--gris);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+.login-card label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 14px 0 7px;
+}
+
+.login-card input,
+.login-card select {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d0d5dd;
+    border-radius: 5px;
+    font-size: 14px;
+    background: white;
+}
+
+.login-card input:focus,
+.login-card select:focus {
+    outline: 2px solid #d5b49a;
+    border-color: var(--cafe);
+}
+
+.boton {
+    display: inline-block;
+    background: var(--cafe);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 13px 22px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.boton:hover {
+    background: #805336;
+}
+
+.boton-formulario {
+    width: 100%;
+    margin-top: 22px;
+    font-size: 15px;
+}
+
+.aviso {
+    margin-top: 18px;
+    font-size: 12px;
+    color: #777;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.mensaje-demo {
+    display: none;
+    background: #f4eee7;
+    color: #5c412e;
+    border-radius: 5px;
+    padding: 14px;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* BANNER PRINCIPAL */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 35px;
+    padding: 55px 7%;
+    background: white;
+}
+
+.hero-text h2 {
+    font-size: clamp(30px, 4vw, 45px);
+    line-height: 1.2;
+    margin-bottom: 18px;
+}
+
+.etiqueta {
+    display: inline-block;
+    background: var(--cafe);
+    color: white;
+    padding: 9px 15px;
+    border-radius: 4px;
+    margin-bottom: 18px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.hero-text p {
+    color: var(--gris);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.hero-img {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* TÍTULOS Y SECCIONES */
+
+.seccion {
+    padding: 55px 6%;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.titulo h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.titulo p {
+    color: var(--gris);
+    line-height: 1.6;
+}
+
+/* CATEGORÍAS */
+
+.categorias {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.categoria {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #e9e0d7;
+}
+
+.categoria img {
+    display: block;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.categoria:hover img {
+    transform: scale(1.05);
+}
+
+.categoria a {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(20,20,20,0.85);
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* CATÁLOGO */
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.producto {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+    transition: transform 0.3s;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+}
+
+.producto img {
+    display: block;
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+}
+
+.producto-info {
+    padding: 18px;
+}
+
+.producto-info h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.producto-info p {
+    color: var(--gris);
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.precio {
+    color: var(--cafe);
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.producto .boton {
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* OFERTAS */
+
+.promocion {
+    background: var(--negro);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.promocion h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.promocion p {
+    color: #eeeeee;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* BENEFICIOS */
+
+.beneficios {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    padding: 35px 6%;
+    background: white;
+    text-align: center;
+}
+
+.beneficio h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.beneficio p {
+    color: var(--gris);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* PIE DE PÁGINA */
+
+footer {
+    background: var(--negro);
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+}
+
+footer p {
+    color: #dddddd;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-top: 12px;
+}
+
+/* VENTANA INFORMATIVA */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-contenido {
+    background: white;
+    padding: 30px;
+    width: 100%;
+    max-width: 430px;
+    border-radius: 10px;
+}
+
+.modal-contenido h2 {
+    margin-bottom: 12px;
+}
+
+.modal-contenido p {
+    color: var(--gris);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.cerrar {
+    float: right;
+    border: none;
+    background: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* DISEÑO RESPONSIVO */
+
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .categorias,
+    .productos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .beneficios {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .navbar {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .navbar nav {
+        justify-content: center;
+        gap: 14px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .login-card {
+        padding: 23px 18px;
+    }
+
+    .login-card h1 {
+        font-size: 22px;
+    }
+
+    .categorias,
+    .productos,
+    .beneficios {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 35px 5%;
+    }
+
+    .hero-img {
+        height: 280px;
+    }
+
+    .titulo h2 {
+        font-size: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENÚ SUPERIOR -->
+
+<header class="navbar">
+    <div class="logo">MODA <span>STYLE</span></div>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#categorias">Categorías</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#ofertas">Ofertas</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+<main>
+
+<!-- VERIFICACIÓN DE CLIENTE: PRIMERA SECCIÓN -->
+
+<section class="verificacion" id="verificacion">
+
+    <div class="login-card">
+
+        <div class="logo-icono" aria-hidden="true">♧</div>
+
+        <h1>Verificación de cliente Moda Style</h1>
+
+        <p class="descripcion-formulario">
+            Bienvenido a nuestra tienda de moda.
+            Explora las categorías y descubre las novedades
+            de nuestra colección.
+        </p>
+
+        <form id="formVerificacion">
+
+            <label for="nombre">Nombre</label>
+            <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Escribe un nombre ficticio"
+                autocomplete="off"
+            >
+
+            <label for="apellido">Apellido</label>
+            <input
+                type="text"
+                id="apellido"
+                name="apellido"
+                placeholder="Escribe un apellido ficticio"
+                autocomplete="off"
+            >
+
+            <label for="celular">Número celular</label>
+            <input
+                type="tel"
+                id="celular"
+                name="celular"
+                placeholder="Ej. 300 000 0000"
+                autocomplete="off"
+            >
+
+            <label for="direccion">Dirección</label>
+            <input
+                type="text"
+                id="direccion"
+                name="direccion"
+                placeholder="Ej. Calle 00 # 00-00"
+                autocomplete="off"
+            >
+
+            <label for="correo">Correo electrónico</label>
+            <input
+                type="email"
+                id="correo"
+                name="correo"
+                placeholder="Ej. usuario@correo.com"
+                autocomplete="off"
+            >
+
+            <label for="categoriaInteres">Categoría de interés</label>
+            <select id="categoriaInteres" name="categoriaInteres">
+                <option value="">Selecciona una categoría</option>
+                <option value="mujer">Moda Mujer</option>
+                <option value="hombre">Moda Hombre</option>
+                <option value="jeans">Jeans</option>
+                <option value="calzado">Calzado</option>
+            </select>
+
+            <button class="boton boton-formulario" type="submit">
+                Continuar
+            </button>
+
+            <div class="mensaje-demo" id="mensajeDemo" role="status">
+                Esta es una demostración de Moda Style.
+                No se han enviado ni guardado datos.
+            </div>
+
+        </form>
+
+        <p class="aviso">
+            Formulario de demostración académica.
+            Utiliza únicamente información ficticia.
+            No ingreses datos personales reales.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- BANNER PRINCIPAL -->
+
+<section class="hero" id="inicio">
+
+    <div class="hero-text">
+
+        <span class="etiqueta">NUEVA COLECCIÓN</span>
+
+        <h2>Viste con estilo, vive tu mejor versión</h2>
+
+        <p>
+            Descubre las últimas tendencias en moda para hombre
+            y mujer. Encuentra prendas, zapatos y accesorios
+            para cada ocasión.
+        </p>
+
+        <a href="#catalogo" class="boton">
+            Explorar catálogo
+        </a>
+
+    </div>
+
+    <img
+        class="hero-img"
+        src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=85"
+        alt="Personas explorando una colección de moda"
+    >
+
+</section>
+
+<!-- CATEGORÍAS -->
+
+<section class="seccion" id="categorias">
+
+    <div class="titulo">
+        <h2>Explora nuestras categorías</h2>
+        <p>Encuentra el estilo que mejor se adapta a ti.</p>
+    </div>
+
+    <div class="categorias">
+
+        <div class="categoria">
+            <img
+                src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80"
+                alt="Colección de moda femenina"
+                loading="lazy"
+            >
+            <a href="#catalogo">Moda Mujer →</a>
+        </div>
+
+        <div class="categoria">
+            <img
+                src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=700&q=80"
+                alt="Colección de moda masculina"
+                loading="lazy"
+            >
+            <a href="#catalogo">Moda Hombre →</a>
+        </div>
+
+        <div class="categoria">
+            <img
+                src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=700&q=80"
+                alt="Prendas de mezclilla"
+                loading="lazy"
+            >
+            <a href="#catalogo">Jeans →</a>
+        </div>
+
+        <div class="categoria">
+            <img
+                src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=80"
+                alt="Colección de calzado"
+                loading="lazy"
+            >
+            <a href="#catalogo">Calzado →</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CATÁLOGO -->
+
+<section class="seccion" id="catalogo">
+
+    <div class="titulo">
+        <h2>Nuestro catálogo</h2>
+        <p>Conoce algunos productos destacados de la colección.</p>
+    </div>
+
+    <div class="productos">
+
+        <article class="producto">
+            <img
+                src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=80"
+                alt="Conjunto de moda"
+                loading="lazy"
+            >
+
+            <div class="producto-info">
+                <h3>Conjunto urbano</h3>
+                <p>Moda mujer · Nueva colección</p>
+                <div class="precio">$129.900 COP</div>
+
+                <button class="boton" type="button"
+                    onclick="mostrarProducto('Conjunto urbano')">
+                    Ver producto
+                </button>
+            </div>
+        </article>
+
+        <article class="producto">
+            <img
+                src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=700&q=80"
+                alt="Camiseta de estilo casual"
+                loading="lazy"
+            >
+
+            <div class="producto-info">
+                <h3>Camiseta básica</h3>
+                <p>Moda unisex · Estilo casual</p>
+                <div class="precio">$49.900 COP</div>
+
+                <button class="boton" type="button"
+                    onclick="mostrarProducto('Camiseta básica')">
+                    Ver producto
+                </button>
+            </div>
+        </article>
+
+        <article class="producto">
+            <img
+                src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=700&q=80"
+                alt="Jeans de mezclilla"
+                loading="lazy"
+            >
+
+            <div class="producto-info">
+                <h3>Jeans clásico</h3>
+                <p>Denim · Estilo moderno</p>
+                <div class="precio">$99.900 COP</div>
+
+                <button class="boton" type="button"
+                    onclick="mostrarProducto('Jeans clásico')">
+                    Ver producto
+                </button>
+            </div>
+        </article>
+
+        <article class="producto">
+            <img
+                src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=80"
+                alt="Zapatos de moda"
+                loading="lazy"
+            >
+
+            <div class="producto-info">
+                <h3>Calzado de temporada</h3>
+                <p>Calzado · Diseño contemporáneo</p>
+                <div class="precio">$159.900 COP</div>
+
+                <button class="boton" type="button"
+                    onclick="mostrarProducto('Calzado de temporada')">
+                    Ver producto
+                </button>
+            </div>
+        </article>
+
+    </div>
+
+</section>
+
+<!-- OFERTAS -->
+
+<section class="promocion" id="ofertas">
+
+    <h2>Renueva tu estilo</h2>
+
+    <p>
+        Descubre las novedades y encuentra tu próximo look favorito.
+    </p>
+
+    <a href="#catalogo" class="boton">
+        Ver colección
+    </a>
+
+</section>
+
+<!-- BENEFICIOS -->
+
+<section class="beneficios">
+
+    <div class="beneficio">
+        <h3>🚚 Envíos</h3>
+        <p>Consulta las opciones de entrega disponibles.</p>
+    </div>
+
+    <div class="beneficio">
+        <h3>✓ Calidad</h3>
+        <p>Prendas para acompañar tu estilo.</p>
+    </div>
+
+    <div class="beneficio">
+        <h3>💳 Pagos</h3>
+        <p>Consulta los medios de pago disponibles.</p>
+    </div>
+
+    <div class="beneficio">
+        <h3>☎ Atención</h3>
+        <p>Estamos aquí para resolver tus dudas.</p>
+    </div>
+
+</section>
+
+</main>
+
+<!-- PIE DE PÁGINA -->
+
+<footer id="contacto">
+
+    <div class="logo">MODA <span>STYLE</span></div>
+
+    <p>
+        Tu estilo, tu mejor versión.<br>
+        Catálogo demostrativo de ropa y accesorios.<br>
+        © 2026 MODA STYLE. Todos los derechos reservados.
+    </p>
+
+</footer>
+
+<!-- VENTANA INFORMATIVA DE PRODUCTOS -->
+
+<div class="modal" id="modalProducto">
+
+    <div class="modal-contenido">
+
+        <button
+            class="cerrar"
+            type="button"
+            onclick="cerrarProducto()"
+            aria-label="Cerrar ventana"
+        >&times;</button>
+
+        <h2 id="nombreProducto">Producto</h2>
+
+        <p>
+            Estás viendo una demostración del catálogo de MODA STYLE.
+            Esta página no procesa compras ni pagos.
+        </p>
+
+        <button class="boton" type="button"
+            onclick="cerrarProducto()">
+            Entendido
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+/* FORMULARIO DEMOSTRATIVO: NO ENVÍA NI GUARDA DATOS */
+
+document.getElementById("formVerificacion")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        document.getElementById("mensajeDemo").style.display = "block";
+
+    });
+
+/* VENTANA INFORMATIVA DEL CATÁLOGO */
+
+function mostrarProducto(nombre) {
+
+    document.getElementById("nombreProducto").textContent = nombre;
+
+    document.getElementById("modalProducto").style.display = "flex";
+
+}
+
+function cerrarProducto() {
+
+    document.getElementById("modalProducto").style.display = "none";
+
+}
+
+document.getElementById("modalProducto")
+    .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+            cerrarProducto();
+        }
+
+    });
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        cerrarProducto();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
+```
